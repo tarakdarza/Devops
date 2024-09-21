@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Serveur avec Filtrage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logs Serveur avec Filtrage</h1>
+
+    <!-- Formulaire pour filtrer les logs -->
+    <form method="POST" action="/logs1">
+        <label for="level">Filtrer par niveau d'événement :</label>
+        <select id="level" name="level">
+            <option value="all" {% if level_filter == 'all' %}selected{% endif %}>Tous</option>
+            <option value="error" {% if level_filter == 'error' %}selected{% endif %}>Erreur</option>
+            <option value="notice" {% if level_filter == 'notice' %}selected{% endif %}>Notice</option>
+            <option value="warning" {% if level_filter == 'warning' %}selected{% endif %}>Avertissement</option>
+        </select>
+        <button type="submit">Appliquer le filtre</button>
+    </form>
+
+    <!-- Affichage des logs filtrés -->
+    <pre>
+        {% for log in logs %}
+            {{ log }}
+        {% endfor %}
+    </pre>
+</body>
+</html>

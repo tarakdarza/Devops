@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Serveur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logs Serveur</h1>
+
+    <!-- Affichage des logs -->
+    <pre>
+        {% for log in logs %}
+            {{ log }}
+        {% endfor %}
+    </pre>
+</body>
+</html>

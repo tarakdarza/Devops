@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats d'analyse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Résultats d'analyse des logs</h1>
+    </header>
+
+    <div class="container">
+        <h2>Statistiques des logs</h2>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Valeur</th>
+            </tr>
+            {% for key, value in results.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

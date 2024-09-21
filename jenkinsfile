@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/tarakdarza/Devops-v2.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip3 install -r requirements.txt'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'python3 -m unittest discover -s tests'
+            }
+        }
+        stage('Deploy Application') {
+            steps {
+                echo 'Déploiement de la version V1'
+            }
+        }
+    }
+}
